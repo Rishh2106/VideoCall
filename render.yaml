@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: video-call-app
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node src/app.js
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+    disk:
+      name: tmp
+      mountPath: /tmp
+      sizeGB: 0.1 
